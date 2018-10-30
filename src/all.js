@@ -205,5 +205,8 @@ class AllBot {
 
 module.exports = robot => {
   const bot = new AllBot(robot);
+  robot.listenerMiddleware (context, next, done) ->
+    if (context.response.message.user.id == getUserByName('Michael Murphey'))
+      next();
   bot.run();
 };
